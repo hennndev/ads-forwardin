@@ -19,11 +19,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <NextAuthProvider>
-                    <ThemeWrapper enableSystem={false} attribute="class">
-                        {children}
-                    </ThemeWrapper>
-                </NextAuthProvider>
+                <ThemeWrapper enableSystem={false} attribute="class">
+                    {children}
+                </ThemeWrapper>
+                {/* <NextAuthProvider>
+                </NextAuthProvider> */}
             </body>
         </html>
     )

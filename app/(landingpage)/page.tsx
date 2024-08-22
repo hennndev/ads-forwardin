@@ -7,6 +7,7 @@ import Opportunity from '@/app/components/landingpage/Opportunity'
 import Pricing from '@/app/components/landingpage/Pricing'
 import FAQ from '@/app/components/landingpage/FAQ'
 import ContactUs from '@/app/components/landingpage/ContactUs'
+import Footer from '@/app/components/landingpage/Footer'
 
 export const metadata = {
     title: "FORWARDIN | Homepage"
@@ -21,9 +22,10 @@ const Homepage = () => {
             <AutoReply/>
             <Opportunity/>
             <Pricing/>
-            <section className='h-[1385px] bg-footer-bg-image bg-cover bg-center bg-no-repeat'>
+            <section className='min-h-[1385px] bg-footer-bg-image bg-cover bg-center bg-no-repeat'>
                 <FAQ/>
                 <ContactUs/>
+            <Footer/>
             </section>
         </Fragment>
     )

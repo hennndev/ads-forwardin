@@ -1,16 +1,29 @@
 import React from 'react'
+import clsx from 'clsx'
+import { sidebarNav } from '@/app/utils/utils'
 
-const Sidenav = () => {
+type PropsTypes = {
+    currentSection: string
+    classesContainer?: string
+    classesChild?: string
+}
+
+const Sidenav = ({currentSection, classesContainer, classesChild}: PropsTypes) => {
     return (
-        <aside className='flex flex-col space-y-3 w-[97px] border-l-[1.5px] border-secondary border-opacity-40 pl-[10px]'>
-            <a href="#getstarted" className='text-[14px] font-[500] text-secondary leading-[16.94px] tracking-[0.25%]'>Get Started</a>
-            <a href="#broadcast" className='text-[14px] opacity-40 font-[500] leading-[16.94px] tracking-[0.25%]'>Broadcast</a>
-            <a href="#campaign" className='text-[14px] opacity-40 font-[500] leading-[16.94px] tracking-[0.25%]'>Campaign</a>
-            <a href="#autoreply" className='text-[14px] opacity-40 font-[500] leading-[16.94px] tracking-[0.25%]'>Auto Reply</a>
-            <a href="opportunity" className='text-[14px] opacity-40 font-[500] leading-[16.94px] tracking-[0.25%]'>Opportunity</a>
-            <a href="#pricing" className='text-[14px] opacity-40 font-[500] leading-[16.94px] tracking-[0.25%]'>Pricing</a>
-            <a href="#faq" className='text-[14px] opacity-40 font-[500] leading-[16.94px] tracking-[0.25%]'>FAQ</a>
-            <a href="#contactus" className='text-[14px] opacity-40 font-[500] leading-[16.94px] tracking-[0.25%]'>Contact Us</a>
+        <aside 
+            className={clsx('hidden xl:flex flex-col space-y-3 w-[97px] border-l-[1.5px] border-solid border-[#00000066] pl-[10px]', classesContainer ? classesContainer : '')}>
+            {sidebarNav.map(obj => (
+                <a 
+                    href={obj.href} 
+                    key={obj.id} 
+                    className={clsx('text-[14px] font-[500] leading-[16.94px] tracking-[0.0025em] text-left', 
+                        currentSection === obj.title.toLowerCase().replace(' ', '') ? 'text-secondary' : 'text-[#00000066]', 
+                        classesChild ? currentSection === obj.title.toLowerCase().replace(' ', '') ? 
+                            `!text-white ${classesChild}` : classesChild 
+                        : '')}>
+                    {obj.title}
+                </a>
+            ))}
         </aside>
     )
 }

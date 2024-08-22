@@ -5,12 +5,14 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {
       colors: {
         "primary": "#3366FF",
-        "secondary": "#000"
+        "secondary": "#000",
+        "light-gray": "#FAFBFF"
       },
       backgroundColor: {
         "section-primary": "#ECF2FA",
@@ -25,10 +27,14 @@ const config: Config = {
         "lexend-deca": ["Lexend Deca", "sans-serif"]
       },
       boxShadow: {
-        'pricing-card': '0px 17.73px 42.21px 0px #00000014'
+        'pricing-card': '0px 17.73px 42.21px 0px #00000014',
+        'navbar': '0px 21px 50px 0px #0000000A',
+        'pricing-toggle': '0px 21px 50px 0px #00000014'
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 };
 export default config;

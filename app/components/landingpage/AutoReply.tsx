@@ -5,16 +5,16 @@ import Sidenav from './Sidenav'
 
 const AutoReply = () => {
     return (
-        <section className='h-[740px] bg-section-primary flex items-center -mt-[30px] space-x-[105px] pl-[83px]'>
+        <section id='autoreply' className='h-[790px] md:h-[740px] lg:-mt-[30px] flex items-center justify-center xl:justify-start xl:pl-[83px]'>
             <section className='flexx'>
-                <Sidenav/>
-                <section className='w-[943.02px] flexx space-x-[105px] ml-[120px]'>
-                    <section className='relative w-[550px] h-[310.76px]'> 
+                <Sidenav currentSection='autoreply'/>
+                <section className='w-[313px] md:w-auto flexx flex-col lg:flex-row lg:space-x-[30px] xl:space-x-[105px] xl:ml-[120px]'>
+                    <section className='relative w-full h-[147.4px] md:w-[380px] md:h-[250px] lg:w-[550px] lg:h-[310.76px]'> 
                         <Image src="/images/autoreply-img.svg" fill priority alt="autoreply-img" className="w-full h-full object-cover"/>
                     </section>
-                    <section className='w-[370px]'>
-                        <h4 className='text-[34px] text-secondary font-[700] leading-[42.5px] tracking-[0.25%] mb-[30px] font-lexend-deca'>Respond Faster with the Convenience of Auto Reply</h4>
-                        <p className='text-[14px] text-secondary font-[500] leading-[16.94px] tracking-[0.25%]'>
+                    <section className='w-full md:w-[370px] space-y-[30px]'>
+                        <h4 className='section-title'>Respond Faster with the Convenience of Auto Reply</h4>
+                        <p className='section-paragraph'>
                             Fowardin mempermudah Anda untuk memberikan respon cepat kepada pesan dari banyak kontak dan grup sekaligus. Dengan fitur Auto Reply kami, Anda dapat menjawab pertanyaan atau memberikan respon otomatis, menghemat waktu dan energi Anda. Tanggap lebih cepat dengan Fowardin.
                         </p>
                     </section>
