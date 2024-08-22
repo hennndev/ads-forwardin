@@ -1,9 +1,18 @@
-import React from 'react'
-import { FiMinus } from "react-icons/fi"
+"use client"
+import { useState } from 'react'
+import clsx from 'clsx'
 import { IoSearch } from "react-icons/io5"
+import { FiMinus, FiPlus } from "react-icons/fi"
 import Sidenav from '@/app/components/landingpage/Sidenav'
 
 const FAQ = () => {
+
+    const [isAccordion, setIsAccordion] = useState<null | string>(null)
+
+    const handleAccordion = (value: null | string) => {
+        setIsAccordion(value)
+    }
+
     return (
         <section id='faq' className='min-h-[741.3px] flex items-center justify-center xl:justify-start -mt-[30px] xl:pl-[83px]'>
             <section className="flexx">
@@ -17,61 +26,74 @@ const FAQ = () => {
                             <IoSearch className='text-white text-2xl leading-[17.77px] '/>
                         </section>
 
-                        <section id="accordion-collapse" data-accordion="collapse" className='flex flex-col space-y-[10px]'>
-
-                            <section id="accordion-collapse-heading-1" className='py-[13px] px-[14px] bg-white rounded-[5px] flex flex-col space-y-[9px]'>
+                        <section className='flex flex-col space-y-[10px]'>
+                            {/* accordion1 */}
+                            <section className='py-[13px] px-[14px] bg-white rounded-[5px] flex flex-col space-y-[9px]'>
                                 <section className="flex-between">
                                     <p className='text-secondary text-[16px] font-[700] leading-[19.36px] tracking-[0.0015em]'>
                                         Apa itu Forwardin?
                                     </p>
-                                    <div className='w-[22px] h-[22px] bg-primary flex-center cursor-pointer'>
-                                        <FiMinus className='text-lg text-white text-center'/>
-                                    </div>
+                                    <button className='w-[22px] h-[22px] bg-primary flex-center cursor-pointer' onClick={() => handleAccordion(isAccordion === 'accord1' ? null : 'accord1')}>
+                                        {isAccordion === 'accord1' ? 
+                                            <FiMinus className='text-lg text-white text-center'/>  :
+                                            <FiPlus className='text-lg text-white text-center'/>
+                                        }
+                                    </button>
                                 </section>
-
-                            </section>
-                            <div id="accordion-collapse-body-1" className="hidden" aria-labelledby="accordion-collapse-heading-1">
-                                <p className='text-secondary text-[12px] font-[500] leading-[14.52px] tracking-[0.005em]'>
-                                    Forwardin adalah sebuah platform alat pengelolaan pesan WhatsApp yang dirancang untuk membantu Anda mengirim pesan ke banyak nomor dan grup WhatsApp secara bersamaan. Forwardin juga menyediakan berbagai fitur canggih seperti auto-reply, fitur broadcast, manajemen kampanye, serta sinkronisasi kontak WhatsApp dan kontak Google.
-                                </p>
-                            </div>
-
-
-                            <section id="accordion-collapse-heading-2" className='py-[13px] px-[14px] bg-white rounded-[5px] flex flex-col space-y-[9px]'>
-                                <section className="flex-between">
-                                    <p className='text-secondary text-[16px] font-[700] leading-[19.36px] tracking-[0.0015em]'>
-                                        Apakah Forwardin cocok untuk saya?
-                                    </p>
-                                    <div className='w-[22px] h-[22px] bg-primary flex-center cursor-pointer'>
-                                        <FiMinus className='text-lg text-white text-center'/>
-                                    </div>
-                                </section>      
-                            </section>
-                                <div id="accordion-collapse-body-1" className="hidden" aria-labelledby="accordion-collapse-heading-1">
+                                <div className={clsx(isAccordion === 'accord1' ? 'inline-flex' : 'hidden')}>
                                     <p className='text-secondary text-[12px] font-[500] leading-[14.52px] tracking-[0.005em]'>
                                         Forwardin adalah sebuah platform alat pengelolaan pesan WhatsApp yang dirancang untuk membantu Anda mengirim pesan ke banyak nomor dan grup WhatsApp secara bersamaan. Forwardin juga menyediakan berbagai fitur canggih seperti auto-reply, fitur broadcast, manajemen kampanye, serta sinkronisasi kontak WhatsApp dan kontak Google.
                                     </p>
                                 </div>
+                            </section>
+                            
 
 
-                            <section id="accordion-collapse-heading-3" className='py-[13px] px-[14px] bg-white rounded-[5px] flex flex-col space-y-[9px]'>
+                            {/* accordion2 */}
+                            <section className='py-[13px] px-[14px] bg-white rounded-[5px] flex flex-col space-y-[9px]'>
+                                <section className="flex-between">
+                                    <p className='text-secondary text-[16px] font-[700] leading-[19.36px] tracking-[0.0015em]'>
+                                        Apakah Forwardin cocok untuk saya?
+                                    </p>
+                                    <button className='w-[22px] h-[22px] bg-primary flex-center cursor-pointer' onClick={() => handleAccordion(isAccordion === 'accord2' ? null : 'accord2')}>
+                                        {isAccordion === 'accord2' ? 
+                                            <FiMinus className='text-lg text-white text-center'/>  :
+                                            <FiPlus className='text-lg text-white text-center'/>
+                                        }
+                                    </button>
+                                </section>      
+                                <section className={clsx(isAccordion === 'accord2' ? 'inline-flex' : 'hidden')}>
+                                    <p className='text-secondary text-[12px] font-[500] leading-[14.52px] tracking-[0.005em]'>
+                                        Forwardin adalah sebuah platform alat pengelolaan pesan WhatsApp yang dirancang untuk membantu Anda mengirim pesan ke banyak nomor dan grup WhatsApp secara bersamaan. Forwardin juga menyediakan berbagai fitur canggih seperti auto-reply, fitur broadcast, manajemen kampanye, serta sinkronisasi kontak WhatsApp dan kontak Google.
+                                    </p>
+                                </section>
+                            </section>
+
+
+                            <section className='py-[13px] px-[14px] bg-white rounded-[5px] flex flex-col space-y-[9px] '>
                                 <section className="flex-between">
                                     <p className='text-secondary text-[16px] font-[700] leading-[19.36px] tracking-[0.0015em]'>
                                         Apakah Forwardin perlu di-install ke komputer?
                                     </p>
-                                    <div className='w-[22px] h-[22px] bg-primary flex-center cursor-pointer'>
-                                        <FiMinus className='text-lg text-white text-center'/>
-                                    </div>
+                                    <button className='w-[22px] h-[22px] bg-primary flex-center cursor-pointer' onClick={() => handleAccordion(isAccordion === 'accord3' ? null : 'accord3')}>
+                                        {isAccordion === 'accord3' ? 
+                                            <FiMinus className='text-lg text-white text-center'/>  :
+                                            <FiPlus className='text-lg text-white text-center'/>
+                                        }
+                                    </button>
                                 </section>
 
-                                <p className='text-secondary text-[12px] font-[500] leading-[14.52px] tracking-[0.005em]'>
-                                    Forwardin adalah sebuah platform alat pengelolaan pesan WhatsApp yang dirancang untuk membantu Anda mengirim pesan ke banyak nomor dan grup WhatsApp secara bersamaan. Forwardin juga menyediakan berbagai fitur canggih seperti auto-reply, fitur broadcast, manajemen kampanye, serta sinkronisasi kontak WhatsApp dan kontak Google.
-                                </p>
+                                <section className={clsx(isAccordion === 'accord3' ? 'inline-flex' : 'hidden')}>
+                                    <p className='text-secondary text-[12px] font-[500] leading-[14.52px] tracking-[0.005em]'>
+                                        Forwardin adalah sebuah platform alat pengelolaan pesan WhatsApp yang dirancang untuk membantu Anda mengirim pesan ke banyak nomor dan grup WhatsApp secara bersamaan. Forwardin juga menyediakan berbagai fitur canggih seperti auto-reply, fitur broadcast, manajemen kampanye, serta sinkronisasi kontak WhatsApp dan kontak Google.
+                                    </p>
+                                </section>
                             </section>
                         </section>
                     </section>
                 </section>
             </section>
+            
         </section>
     )
 }

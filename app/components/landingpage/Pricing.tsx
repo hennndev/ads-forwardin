@@ -13,6 +13,15 @@ const Pricing = () => {
         setPricingToggle(value)
     }
 
+    const formatCurrency = (amount: number) => {
+        return new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+        }).format(amount)
+      }
+
     return (
         <section id='pricing' className='mt-[120px] lg:mt-[30px] min-h-[740px] bg-gradient-pricing flex items-center justify-center xl:justify-start xl:pl-[83px] pb-[100px]'>
             <section className='flexx'>
@@ -61,11 +70,11 @@ const Pricing = () => {
                                     </section>
                                     <section>
                                         <h5 className='text-secondary text-[20.26px] leading-[25.33px] font-[700] font-lexend-deca mb-[6.75px]'>
-                                            {obj.pricePerMonth === null ? 'Gratis' : `Rp. ${obj.pricePerMonth.toLocaleString()}`} 
+                                            {obj.pricePerMonth === null ? 'Gratis' : `Rp. ${formatCurrency(obj.pricePerMonth)}`} 
                                             {obj.pricePerMonth && <span className='font-[500] text-[11.82px] leading-[14.3px] tracking-[0.025em]'> /bulan</span>}
                                         </h5>
                                         <h6 className='text-[#777C88] text-[11.82px] leading-[14.3px] font-[600]'>
-                                            {obj.pricePerYear ? `Rp. ${obj.pricePerYear.toLocaleString()} /tahun` : '-'} 
+                                            {obj.pricePerYear ? `Rp. ${formatCurrency(obj.pricePerYear)} /tahun` : '-'} 
                                         </h6>
                                     </section>
                                 </section>

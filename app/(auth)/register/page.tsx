@@ -8,8 +8,8 @@ export const metadata = {
 
 const Register = () => {
     return (
-        <section className='flex-1 flex-center px-[20px] lg:px-0 lg:space-x-[120px]'>
-            <section className='hidden lg:flex flex-col space-y-[25px]'>
+        <section className='flex-1 flex-center px-[20px] xl:px-0 xl:space-x-[120px] pb-[20px]'>
+            <section className='hidden xl:flex flex-col space-y-[25px]'>
                 <section className='relative w-[500px] h-[300.36px]'>
                     <Image src="/images/hero-img.svg" fill priority alt="login-img" className='w-full h-full object-cover'/>
                 </section>

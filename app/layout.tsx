@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import ThemeWrapper from "@/app/components/wrapper/ThemeWrapper"
 import NextAuthProvider from "@/app/components/wrapper/NextAuthProvider"
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,10 +17,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>
-                <ThemeWrapper enableSystem={false} attribute="class">
-                    {children}
-                </ThemeWrapper>
+            <body className={inter.className} suppressHydrationWarning={true}>
+                {children}
+                
                 {/* <NextAuthProvider>
                 </NextAuthProvider> */}
             </body>

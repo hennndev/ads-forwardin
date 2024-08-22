@@ -1,7 +1,7 @@
+"use client"
 import React from 'react'
 import Sidenav from '@/app/components/landingpage/Sidenav'
 import WhiteLogo from '@/app/components/ui/logo/WhiteLogo'
-import Footer from './Footer'
 
 const ContactUs = () => {
     return (
