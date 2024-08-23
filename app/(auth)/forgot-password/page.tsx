@@ -1,23 +1,16 @@
 import React from 'react'
 import Image from 'next/image'
-import { redirect } from 'next/navigation'
-import { getServerSession } from 'next-auth'
-import RegisterForm from '@/app/components/auth/RegisterForm'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import LoginForm from '@/app/components/auth/LoginForm'
 
 export const metadata = {
-    title: "FORWARDIN | Register"
+    title: "FORWARDIN | Forgot Password"
 }
 
-const Register = async () => {
-    const session = await getServerSession(authOptions)
-    if(session?.user) {
-        return redirect('/admin/dashboard')
-    }
+const ForgotPassword = () => {
     return (
-        <section className='flex-1 flex-center px-[20px] xl:px-0 xl:space-x-[120px] pb-[20px]'>
-            <section className='hidden xl:flexx flex-col space-y-[25px]'>
-                <section className='relative w-[500px] h-[300.36px] -mt-[50px]'>
+        <section className='flex-1 flex-center px-[20px] lg:px-0 lg:space-x-[120px]'>
+            <section className='hidden lg:flex flex-col space-y-[25px]'>
+                <section className='relative w-[500px] h-[300.36px]'>
                     <Image src="/images/hero-img.svg" fill priority alt="login-img" className='w-full h-full object-cover'/>
                 </section>
                 <section className='flex flex-col space-y-[15px] w-[465px]'>
@@ -29,9 +22,9 @@ const Register = async () => {
                     </p>
                 </section>
             </section>
-            <RegisterForm/>
+            <LoginForm/>
         </section>
     )
 }
 
-export default Register
+export default ForgotPassword

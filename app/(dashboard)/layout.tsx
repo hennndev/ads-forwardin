@@ -1,13 +1,17 @@
 import React from 'react'
-import Navbar from '@/app/components/landingpage/Navbar'
+import Badge from '@/app/components/dashboard/Badge'
+import Sidebar from '@/app/components/dashboard/Sidebar'
 import ThemeWrapper from "@/app/components/wrapper/ThemeWrapper"
 
 const DashboardLayout = ({children}: {children: React.ReactNode}) => {
     return (
-        <ThemeWrapper enableSystem={false} attribute="class">
-            <Navbar/>
-            <main>
-                {children}
+        <ThemeWrapper attribute='class'>
+            <main className='flex'>
+                <Sidebar/>
+                <section className='flex-1 bg-[#F3F5F8] dark:bg-[#000] py-[20px] px-[30px]'>
+                    <Badge/>
+                    {children}
+                </section>
             </main>
         </ThemeWrapper>
     )

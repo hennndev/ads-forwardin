@@ -1,37 +1,62 @@
 "use client"
-import React from 'react'
+import { useState } from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
-import { IoMdCheckmark } from "react-icons/io"
+import { signIn } from 'next-auth/react'
+import { signupUser } from '@/app/lib/actions/auth.actions'
+import { IoMdCheckmark, IoLogoGoogle } from "react-icons/io"
 
 type FormTypes = {
     email: string
     username: string
+    phoneNumber: string
     password: string
 }
 
 const RegisterForm = () => {
-
-    const { register, handleSubmit, formState: {errors}, watch } = useForm<FormTypes>({
+    const [isSuccess, setIsSuccess] = useState<string | null>(null)
+    const [isError, setIsError] = useState<string | null>(null)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const { register, handleSubmit, formState: {errors}, watch, reset } = useForm<FormTypes>({
         defaultValues: {
             username: '',
             email: '',
+            phoneNumber: '',
             password: ''
         }
     })
 
-    const onSubmit = (values: FormTypes) => {
-        console.log(values)
+    const onSubmit = async (values: FormTypes) => {
+        setIsLoading(true)
+        setIsError(null)
+        setIsSuccess(null)
+        try {
+            const phone_number = '62'.concat(values.phoneNumber)
+            const res = await signupUser(values.username, values.email, values.password, phone_number)
+            if(res?.error) {
+                throw res?.error
+            } 
+            if(res?.success) {
+                setIsSuccess(res.success)
+                reset()
+            }
+        } catch (error: any) {
+            setIsError(error)
+        } finally {
+            setIsLoading(false)
+        }
     }
+    const signinGoogle = async () => await signIn('google', {callbackUrl: '/admin/dashboard'}) 
 
     const pass1Low = (value: string) => /[a-z]/.test(value)
     const pass1Cap = (value: string) => /[A-Z]/.test(value) 
     const pass1Num = (value: string) => /[0-9]/.test(value)
     const pass1Uniq = (value: string) => /[!@#$%^&*(),./;']/.test(value)
+    const regexPhoneID = /^(81|82|83|84|85|86|87|88|89)[0-9]{6,10}$/
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col w-[466px] py-[40px] px-[20px] space-y-[40px] lg:shadow-pricing-card bg-white rounded-[10px]'>
+        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col w-[466px] py-[40px] px-[20px] space-y-[25px] lg:shadow-pricing-card bg-white rounded-[10px]'>
             <section>
                 <h5 className='text-secondary text-[24px] leading-[30px] font-lexend-deca font-[700] text-center'>
                     Welcome to Fowardin
@@ -42,6 +67,22 @@ const RegisterForm = () => {
                     </p>
                 </div>
             </section>
+
+            {isError && (
+                <div className='py-[12px] px-[20px] bg-[#F3F5F8] rounded-[5px] opacity-80'>
+                    <p className='text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] text-red-500'>
+                        {isError}
+                    </p>
+                </div>
+            )}
+
+            {isSuccess && (
+                <div className='py-[12px] px-[20px] bg-[#F3F5F8] rounded-[5px] opacity-80'>
+                    <p className='text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] text-green-500'>
+                        {isSuccess}
+                    </p>
+                </div>
+            )}
 
             <section className='flex flex-col space-y-[16px]'>
                 <input 
@@ -54,7 +95,7 @@ const RegisterForm = () => {
                     })}
                     type="email" 
                     placeholder='Email' 
-                    className={clsx('py-[12px] px-[21px] rounded-[5px] border border-solid border-[#B0B4C5] text-base text-secondary placeholder:text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] placeholder:text-[#B0B4C5] outline-none focus:ring-1 focus:ring-secondary', errors.email ? 'border-red-500 focus:ring-0' : '')}/>
+                    className={clsx('py-[12px] px-[21px] rounded-[5px] border border-solid border-[#B0B4C5] text-base text-secondary placeholder:text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] placeholder:text-[#B0B4C5] outline-none', errors.email ? 'border-red-500 bg-red-50' : 'focus:ring-1 focus:ring-secondary')}/>
 
                 <input 
                     {...register('username', {
@@ -62,7 +103,24 @@ const RegisterForm = () => {
                     })}
                     type="text" 
                     placeholder='Username' 
-                    className={clsx('py-[12px] px-[21px] rounded-[5px] border border-solid border-[#B0B4C5] text-base text-secondary placeholder:text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] placeholder:text-[#B0B4C5] outline-none focus:ring-1 focus:ring-secondary', errors.username ? 'border-red-500 focus:ring-0' : '')}/>
+                    className={clsx('py-[12px] px-[21px] rounded-[5px] border border-solid border-[#B0B4C5] text-base text-secondary placeholder:text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] placeholder:text-[#B0B4C5] outline-none', errors.username ? 'border-red-500 bg-red-50' : 'focus:ring-1 focus:ring-secondary')}/>
+                
+                <div className='w-full flexx space-x-[10px]'>
+                    <select className='py-[12px] px-[21px] rounded-[5px] border border-solid border-[#B0B4C5] text-base text-secondary text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] appearance-none outline-none'>
+                        <option value="62">(ID) + 62</option>
+                    </select>
+                    <input 
+                        {...register('phoneNumber', {
+                            required: 'Phone number required',
+                            pattern: {
+                                value: regexPhoneID,
+                                message: 'Not valid as Indonesia phone number'
+                            },
+                        })}
+                        type="text" 
+                        placeholder='Whatsapp Phone Number' 
+                        className={clsx('flex-1 py-[12px] px-[21px] rounded-[5px] border border-solid border-[#B0B4C5] text-base text-secondary placeholder:text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] placeholder:text-[#B0B4C5] outline-none', errors.phoneNumber ? 'border-red-500 bg-red-50' : 'focus:ring-1 focus:ring-secondary')}/>
+                </div>
 
                 <input 
                     {...register('password', {
@@ -79,10 +137,10 @@ const RegisterForm = () => {
                     })}
                     type="password" 
                     placeholder='Password' 
-                    className={clsx('py-[12px] px-[21px] rounded-[5px] border border-solid border-[#B0B4C5] text-base text-secondary placeholder:text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] placeholder:text-[#B0B4C5] outline-none focus:ring-1 focus:ring-secondary', errors.password ? 'border-red-500 focus:ring-0' : '')}/>
+                    className={clsx('py-[12px] px-[21px] rounded-[5px] border border-solid border-[#B0B4C5] text-base text-secondary placeholder:text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] placeholder:text-[#B0B4C5] outline-none', errors.password ? 'border-red-500 bg-red-50' : 'focus:ring-1 focus:ring-secondary')}/>
                 
                 <div className='py-[12px] px-[20px] bg-[#F3F5F8] rounded-[5px]'>
-                    <div className='text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] text-gray-400'>
+                    <div className='text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] text-gray-500'>
                         Password harus mengandung: <br />
                         <span className={clsx('flexx text-center', watch('password').length >= 8 ? 'text-green-500' : '' )}>
                            {watch('password').length >= 8 && <IoMdCheckmark className='mr-1 text-sm'/>} Paling tidak 8 karakter
@@ -104,8 +162,21 @@ const RegisterForm = () => {
                 </div>
             </section>
 
-            <button type='submit' className='bg-primary py-[12px] rounded-[5px] text-[14px] font-[500] leading-[16.94px] tracking-[0.0125em] text-center text-white outline-none'>
-                Sign Up
+            <button type='submit' className={clsx('py-[12px] rounded-[5px] text-[14px] font-[500] leading-[16.94px] tracking-[0.0125em] text-center outline-none', isLoading ? 'bg-[#F3F5F8] opacity-80 text-gray-500' : 'bg-primary text-white')}>
+                {isLoading ? 'Loading' : 'Sign Up'}
+            </button>
+
+            <hr />
+            <div className='bg-white self-center py-1 px-6 !-mt-3'>
+                <p className='text-center text-[14px] text-secondary leading-[16.94px] tracking-[0.005em]'>Or</p>
+            </div>
+
+            <button 
+                type='button' 
+                onClick={signinGoogle}
+                className='flex-center bg-[#F3F5F8] opacity-80 py-[12px] rounded-[5px] text-[14px] font-[500] leading-[16.94px] tracking-[0.0125em] text-center text-secondary outline-none'>
+                <IoLogoGoogle className='mr-2 text-lg text-red-500'/>
+                Sign In with Google
             </button>
 
             <p className='text-[14px] leading-[16.94px] font-[500] tracking-[0.0125em] text-center'>

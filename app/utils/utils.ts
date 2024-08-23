@@ -6,6 +6,9 @@ import DeviceIcon from '@/app/components/ui/icons/DeviceIcon'
 import ExcelImportIcon from '@/app/components/ui/icons/ExcelImportIcon'
 import GoogleContactSyncIcon from '@/app/components/ui/icons/GoogleContactSyncIcon'
 
+import { MdSpaceDashboard, MdAdUnits, MdPodcasts, MdContacts, MdOutlineSupportAgent, MdMoveToInbox, MdAllInbox, MdGroups, MdChatBubble, MdOutgoingMail, MdSettings, MdOutlineBarChart, MdOutlineApi, MdCampaign, MdOutlinePlayCircle, MdLogout } from "react-icons/md";
+
+
 export const sidebarNav = [
     {
         id: 1,
@@ -116,4 +119,79 @@ export const pricingIcons = [
         title: 'Google Contact Sync',
         Icon: GoogleContactSyncIcon
     },
+]
+
+export const sidebarItems = [
+    {
+        title: 'Dashboard',
+        Icon: MdSpaceDashboard
+    },
+    {
+        title: 'Device',
+        Icon: MdAdUnits
+    },
+    {
+        title: 'Contacts',
+        Icon: MdContacts,
+        child: [
+            {
+                title: 'Contacts',
+                Icon: MdContacts
+            },
+            {
+                title: 'Groups',
+                Icon: MdGroups
+            }
+        ]
+    },
+    {
+        title: 'Message List',
+        Icon: MdChatBubble,
+        child: [
+            {
+                title: 'Messengers',
+                Icon: MdAllInbox,
+            },
+            {   
+                title: 'Incoming Chat',
+                Icon: MdMoveToInbox
+            },
+            {
+                title: 'Outgoing Chat',
+                Icon: MdOutgoingMail
+            }
+        ]
+    },
+    {
+        title: 'Broadcast',
+        Icon: MdPodcasts
+    },
+    {
+        title: 'Campaign',
+        Icon: MdCampaign
+    },
+    {
+        title: 'Auto Reply',
+        Icon: MdOutlinePlayCircle
+    },
+    {
+        title: 'Customer Service',
+        Icon: MdOutlineSupportAgent
+    },
+    {
+        title: 'Analytics',
+        Icon: MdOutlineBarChart
+    },
+    {
+        title: 'Forwardin API',
+        Icon: MdOutlineApi
+    },
+    {
+        title: 'Settings',
+        Icon: MdSettings
+    },
+    {
+        title: 'Logout',
+        Icon: MdLogout
+    }
 ]

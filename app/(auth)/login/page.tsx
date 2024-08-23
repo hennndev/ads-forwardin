@@ -1,15 +1,22 @@
 import React from 'react'
 import Image from 'next/image'
+import { redirect } from 'next/navigation'
+import { getServerSession } from 'next-auth'
 import LoginForm from '@/app/components/auth/LoginForm'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 
 export const metadata = {
     title: "FORWARDIN | Login"
 }
 
-const Login = () => {
+const Login = async () => {
+    const session = await getServerSession(authOptions)  
+    if(session?.user) {
+        return redirect('/admin/dashboard')
+    }
     return (
         <section className='flex-1 flex-center px-[20px] lg:px-0 lg:space-x-[120px]'>
-            <section className='hidden lg:flex flex-col space-y-[25px]'>
+            <section className='hidden lg:flexx flex-col space-y-[25px]'>
                 <section className='relative w-[500px] h-[300.36px]'>
                     <Image src="/images/hero-img.svg" fill priority alt="login-img" className='w-full h-full object-cover'/>
                 </section>

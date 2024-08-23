@@ -9,6 +9,7 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/flowbite/**/*.{js,ts,jsx,tsx}"
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -26,7 +27,8 @@ const config: Config = {
         "footer-bg-image": "url(/images/main-bg-footer.png)"
       },
       fontFamily: {
-        "lexend-deca": ["Lexend Deca", "sans-serif"]
+        "lexend-deca": ["Lexend Deca"],
+        "nunito-sans": ["Nunito Sans"]
       },
       boxShadow: {
         'pricing-card': '0px 17.73px 42.21px 0px #00000014',
@@ -35,5 +37,8 @@ const config: Config = {
       }
     },
   },
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ]
 };
 export default config;
