@@ -47,7 +47,7 @@ const RegisterForm = () => {
             setIsLoading(false)
         }
     }
-    const signinGoogle = async () => await signIn('google', {callbackUrl: '/admin/dashboard'}) 
+    const signinGoogle = async () => await signIn('google', {callbackUrl: '/dashboard'}) 
 
     const pass1Low = (value: string) => /[a-z]/.test(value)
     const pass1Cap = (value: string) => /[A-Z]/.test(value) 

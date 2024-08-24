@@ -1,11 +1,11 @@
 "use client"
 import { useState } from 'react'
 import clsx from 'clsx'
+import { signOut } from 'next-auth/react'
 import { FaCaretDown } from "react-icons/fa"
 import { usePathname } from 'next/navigation'
 import { sidebarItems } from '@/app/utils/utils'
 import BlueLogo from '@/app/components/ui/logo/BlueLogo'
-import { signOut } from 'next-auth/react'
 
 
 const Sidebar = () => {
@@ -28,7 +28,7 @@ const Sidebar = () => {
     const handleLogout = () => signOut() 
 
     return (
-        <aside className='w-[239px] bg-white dark:bg-[#0F0E0E] py-[30px] px-[16px] h-screen scrollbar-hide overflow-y-auto'>
+        <aside className='sticky top-0 w-[239px] bg-white dark:bg-[#0F0E0E] py-[30px] px-[16px] h-screen scrollbar-hide overflow-y-auto'>
             <section className='flex flex-col space-y-[30px]'>
                 <div className="flex-center">
                     <BlueLogo/>

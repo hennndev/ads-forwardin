@@ -35,7 +35,7 @@ const LoginForm = () => {
             if(res?.error) {
                 throw res?.error
             } else {
-                router.push('/admin/dashboard')
+                router.push('/dashboard')
             }
         } catch (error: any) {
             setIsError(error)
@@ -43,7 +43,7 @@ const LoginForm = () => {
             setIsLoading(false)
         }
     }
-    const signinGoogle = async () => await signIn('google', {callbackUrl: '/admin/dashboard'}) 
+    const signinGoogle = async () => await signIn('google', {callbackUrl: '/dashboard'}) 
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col w-[466px] py-[40px] px-[20px] space-y-[25px] lg:shadow-pricing-card lg:bg-white rounded-[10px]'>
