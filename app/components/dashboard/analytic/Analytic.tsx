@@ -3,7 +3,6 @@ import React from 'react'
 import Ringkasan from './Ringkasan'
 import AnalyticGraph from './AnalyticGraph'
 import TotalStatistikPesan from './TotalStatistikPesan'
-import TrendInteraksiPesan from './analytic/TrendInteraksiPesan'
 
 const Analytic = () => {
     return (
@@ -15,9 +14,7 @@ const Analytic = () => {
                 <Ringkasan/>
                 <TotalStatistikPesan/>
             </section>
-            
             <AnalyticGraph/>
-            <TrendInteraksiPesan/>
         </section>
     )
 }

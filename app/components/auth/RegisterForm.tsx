@@ -105,8 +105,8 @@ const RegisterForm = () => {
                     placeholder='Username' 
                     className={clsx('py-[12px] px-[21px] rounded-[5px] border border-solid border-[#B0B4C5] text-base text-secondary placeholder:text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] placeholder:text-[#B0B4C5] outline-none', errors.username ? 'border-red-500 bg-red-50' : 'focus:ring-1 focus:ring-secondary')}/>
                 
-                <div className='w-full flexx space-x-[10px]'>
-                    <select className='py-[12px] px-[21px] rounded-[5px] border border-solid border-[#B0B4C5] text-base text-secondary text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] appearance-none outline-none'>
+                <div className='w-full flexx md:space-x-[10px]'>
+                    <select className='hidden md:inline py-[12px] px-[21px] rounded-[5px] border border-solid border-[#B0B4C5] text-base text-secondary text-[12px] font-[500] leading-[14.52px] tracking-[0.005em] appearance-none outline-none'>
                         <option value="62">(ID) + 62</option>
                     </select>
                     <input 

@@ -1,5 +1,6 @@
 import React from 'react'
-import GraphicChatPerJam from './analytic/GraphicChatPerJam'
+import GraphicChatPerJam from './GraphicChatPerJam'
+import TrendInteraksiPesan from './TrendInteraksiPesan'
 
 const AnalyticGraph = () => {
     return (
@@ -27,7 +28,10 @@ const AnalyticGraph = () => {
                 </div>
             </div>
             
-            <GraphicChatPerJam/>
+            <div className="flex flex-col space-y-[35px]">
+                <GraphicChatPerJam/>
+                <TrendInteraksiPesan/>
+            </div>
         </section>
     )
 }

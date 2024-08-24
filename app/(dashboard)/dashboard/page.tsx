@@ -1,8 +1,8 @@
 import React from 'react'
 import Header from '@/app/components/dashboard/Header'
-import Analytic from '@/app/components/dashboard/Analytic'
 import StarterInfo from '@/app/components/dashboard/StarterInfo'
 import LastMessage from '@/app/components/dashboard/LastMessage'
+import Analytic from '@/app/components/dashboard/analytic/Analytic'
 
 export const metadata = {
     title: 'FORWARDIN | Dashboard'
