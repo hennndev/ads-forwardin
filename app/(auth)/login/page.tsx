@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth'
 import LoginForm from '@/app/components/auth/LoginForm'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { authOptions } from '@/app/lib/config/authOptions'
 
 export const metadata = {
     title: "FORWARDIN | Login"
@@ -12,7 +12,7 @@ export const metadata = {
 const Login = async () => {
     const session = await getServerSession(authOptions)  
     if(session?.user) {
-        return redirect('/admin/dashboard')
+        return redirect('/dashboard')
     }
     return (
         <section className='flex-1 flex-center px-[20px] lg:px-0 lg:space-x-[120px]'>

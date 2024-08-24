@@ -2,8 +2,8 @@ import React from 'react'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth'
+import { authOptions } from '@/app/lib/config/authOptions'
 import RegisterForm from '@/app/components/auth/RegisterForm'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 
 export const metadata = {
     title: "FORWARDIN | Register"
@@ -12,7 +12,7 @@ export const metadata = {
 const Register = async () => {
     const session = await getServerSession(authOptions)
     if(session?.user) {
-        return redirect('/admin/dashboard')
+        return redirect('/dashboard')
     }
     return (
         <section className='flex-1 flex-center px-[20px] xl:px-0 xl:space-x-[120px] pb-[20px]'>
