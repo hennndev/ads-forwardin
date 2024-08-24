@@ -8,11 +8,9 @@ import Sidenav from '@/app/components/landingpage/Sidenav'
 const Pricing = () => {
 
     const [pricingToggle, setPricingToggle] = useState<'monthly' | 'yearly'>('yearly')
-
     const choosePricing = (value: 'monthly' | 'yearly') => {
         setPricingToggle(value)
     }
-
     const formatCurrency = (amount: number) => {
         return new Intl.NumberFormat('id-ID', {
             style: 'currency',

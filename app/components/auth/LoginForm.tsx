@@ -2,10 +2,10 @@
 import { useState } from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
+import { signIn } from 'next-auth/react'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { IoLogoGoogle } from "react-icons/io"
-import { signIn } from 'next-auth/react'
 
 type FormTypes = {
     email: string

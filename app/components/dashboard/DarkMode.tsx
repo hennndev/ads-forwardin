@@ -64,7 +64,6 @@ const DarkMode = ({size}: PropsTypes) => {
     if(!mounted) {
         return null
     }
-    
     return (
         <DarkModeSwitch
             checked={checked}

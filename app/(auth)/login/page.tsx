@@ -8,7 +8,6 @@ import { authOptions } from '@/app/lib/config/authOptions'
 export const metadata = {
     title: "FORWARDIN | Login"
 }
-
 const Login = async () => {
     const session = await getServerSession(authOptions)  
     if(session?.user) {

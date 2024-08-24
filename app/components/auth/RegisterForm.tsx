@@ -26,7 +26,6 @@ const RegisterForm = () => {
             password: ''
         }
     })
-
     const onSubmit = async (values: FormTypes) => {
         setIsLoading(true)
         setIsError(null)

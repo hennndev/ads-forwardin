@@ -8,10 +8,7 @@ const ContactUs = () => {
         <section id='contactus' className='h-auto mt-[50px] xl:mt-[150px] flex items-center justify-center xl:justify-start xl:pl-[83px]'>
             <section className="flex min-h-[441px]">
                 <Sidenav currentSection='contactus' classesContainer='border-[#FFFFFF66] self-start' classesChild='text-[#FFFFFF66]'/>
-
-
                 <section className='flex flex-col lg:flex-row justify-between space-y-[47px] lg:space-y-0 w-[316px] lg:w-[800px] xl:w-[995px] min-h-[200px] xl:ml-[120px]'>
-
                     <section className='w-full lg:w-[280px] xl:w-[351.34px] h-[201.12px] flex-between items-start flex-col'>
                         <WhiteLogo/>
                         <p className='text-white text-[12px] font-[500] leading-[14.52px] tracking-[0.005em]'>

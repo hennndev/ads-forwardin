@@ -37,14 +37,28 @@ const Sidebar = () => {
                 <section className='flex flex-col space-y-[8px]'>
                     {primary.map(({Icon, ...obj}) => (
                         <div key={obj.title}>
-                            <div className={clsx('group flex-between py-[12px] px-[23px] rounded-[12px] hover:bg-primary cursor-pointer', !obj.child && pathname === obj.title.toLowerCase() ? 'bg-primary' : '')} onClick={() => handleClick(Boolean(obj?.child), obj.title)}>
+                            <div 
+                                className={clsx('group flex-between py-[12px] px-[23px] rounded-[12px] hover:bg-primary cursor-pointer', !obj.child && pathname === obj.title.toLowerCase() ? 'bg-primary' : '',
+                                obj.child && obj.title === 'Contacts' && showDropdownContacts ? 'bg-[#F3F5F8] dark:bg-[#1F1F21] hover:dark:bg-[#1F1F21] hover:bg-[#F3F5F8]' : '',
+                                obj.child && obj.title === 'Message List' && showDropdownMessages ? 'bg-[#F3F5F8] dark:bg-[#1F1F21] hover:dark:bg-[#1F1F21] hover:bg-[#F3F5F8]' : ''
+                            )} 
+                                onClick={() => handleClick(Boolean(obj?.child), obj.title)}>
                                 <div className="flexx space-x-[10px]">
                                     <Icon 
-                                        className={clsx('group-hover:text-white text-[17px]', !obj.child && pathname === obj.title.toLowerCase() ? 'text-white' : 'text-secondary dark:text-white')}/>
+                                        className={clsx('group-hover:text-white text-[17px]', !obj.child && pathname === obj.title.toLowerCase() ? 'text-white' : 'text-secondary dark:text-white',
+                                            obj.child && obj.title === 'Contacts' && showDropdownContacts ? 'group-hover:!text-secondary group-hover:dark:!text-white' : '',
+                                            obj.child && obj.title === 'Message List' && showDropdownMessages ? 'group-hover:!text-secondary group-hover:dark:!text-white' : '')}/>
                                     <p 
-                                        className={clsx('group-hover:text-white text-[14px] font-[500] leading-[16.94px] tracking-[0.0125]', !obj.child && pathname === obj.title.toLowerCase() ? 'text-white' : 'text-secondary dark:text-white')}>{obj.title}</p>
+                                        className={clsx('group-hover:text-white text-[14px] font-[500] leading-[16.94px] tracking-[0.0125]', !obj.child && pathname === obj.title.toLowerCase() ? 'text-white' : 'text-secondary dark:text-white',
+                                        obj.child && obj.title === 'Contacts' && showDropdownContacts ? 'group-hover:!text-secondary group-hover:dark:!text-white' : '',
+                                        obj.child && obj.title === 'Message List' && showDropdownMessages ? 'group-hover:!text-secondary group-hover:dark:!text-white' : '')}>
+                                        {obj.title}
+                                    </p>
                                 </div>
-                                {obj.child && <FaCaretDown className='text-secondary dark:text-white group-hover:text-white text-[14px]'/>}
+                                {obj.child && <FaCaretDown className={clsx('text-secondary dark:text-white group-hover:text-white text-[14px]', 
+                                    obj.child && obj.title === 'Contacts' && showDropdownContacts ? 'group-hover:!text-secondary group-hover:dark:!text-white' : '',
+                                    obj.child && obj.title === 'Message List' && showDropdownMessages ? 'group-hover:!text-secondary group-hover:dark:!text-white' : ''
+                                )}/>}
                             </div>
 
                             {obj?.child && obj.title === 'Contacts' && showDropdownContacts && (
