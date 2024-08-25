@@ -64,13 +64,13 @@ const Navbar = () => {
                     <button className='bg-transparent w-[80%] py-[12px] px-[44px] rounded-[5px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500] text-secondary hover:text-primary'>
                         Blogs
                     </button>
-                    <Link href='/login' className='bg-primary w-[80%] py-[12px] px-[44px] text-white rounded-[10px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500]'>
+                    <Link href='/login' className='bg-primary w-[80%] py-[12px] px-[44px] text-white rounded-[10px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500] text-center'>
                         Sign In
                     </Link>
-                    <Link href='/login' className='bg-[#F3F5F8] opacity-50 w-[80%] py-[12px] px-[44px] text-secondary rounded-[5px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500]'>
+                    <Link href='/login' className='bg-[#F3F5F8] opacity-50 w-[80%] py-[12px] px-[44px] text-secondary rounded-[5px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500] text-center'>
                         Sign In as Admin
                     </Link>
-                    <Link href='/login' className='bg-transparent opacity-50 w-[80%] py-[12px] px-[44px] text-secondary rounded-[5px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500]'>
+                    <Link href='/login' className='bg-transparent opacity-50 w-[80%] py-[12px] px-[44px] text-secondary rounded-[5px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500] text-center'>
                         Sign In as Customer Service
                     </Link>
                </section>

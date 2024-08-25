@@ -15,7 +15,7 @@ const Opportunity = () => {
 
                     <section className='w-[312px] md:w-[450px] lg:w-[900px] xl:w-auto flexx flex-col lg:flex-row xl:space-x-[50px]'>
                         <section className='relative w-[253px] md:w-[300px] lg:w-[253px] h-[243px]'>
-                            <Image src='/images/opportunity.svg' fill alt='opportunity' loading='lazy' className='w-full h-full object-cover'/>
+                            <Image src='/images/opportunity.svg' fill alt='opportunity' priority={true} className='w-full h-full object-cover'/>
                         </section>
                         <section className='w-full lg:w-auto flex flex-1 flex-col xl:w-[621px] space-y-[30px]'>
                             <section className='flexx flex-col lg:flex-row space-y-[10px] lg:space-y-0 lg:space-x-[10px]'>
