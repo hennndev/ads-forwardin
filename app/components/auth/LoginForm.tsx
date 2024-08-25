@@ -44,11 +44,6 @@ const LoginForm = () => {
         }
     }
     const signinGoogle = async () => await signIn('google', {callbackUrl: '/dashboard'}) 
-
-    useEffect(() => {
-        router.prefetch('/dashboard')
-    }, [router])
-    
     
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col w-[466px] py-[40px] px-[20px] space-y-[25px] lg:shadow-pricing-card lg:bg-white rounded-[10px]'>

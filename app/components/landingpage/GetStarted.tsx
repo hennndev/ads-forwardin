@@ -29,7 +29,7 @@ const GetStarted = () => {
                         </Link>
                     </section>
                     <section className="relative w-full h-[199.94px] md:w-[380px] md:h-[250px] lg:w-[558px] lg:h-[351px]">
-                        <Image src="/images/hero-img.svg" fill priority alt="hero-img" className="w-full h-full object-cover"/>
+                        <Image src="/images/hero-img.svg" fill priority={true} alt="hero-img" className="w-full h-full object-cover"/>
                     </section>
                 </section>
             </section>
