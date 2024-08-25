@@ -14,7 +14,7 @@ const Opportunity = () => {
                     <h4 className='text-primary section-title text-center w-[312px] md:w-[500px] lg:w-[691px] font-lexend-deca mb-[58px]'>"One Step Closer to More Effective and Connected Communication!"</h4>
 
                     <section className='w-[312px] md:w-[450px] lg:w-[900px] xl:w-auto flexx flex-col lg:flex-row xl:space-x-[50px]'>
-                        <section className='relative w-[253px] md:w-[300px] lg:w-[253px] h-[243px]'>
+                        <section className='block relative w-[253px] md:w-[300px] lg:w-[253px] h-[243px]'>
                             <Image src='/images/opportunity.svg' fill alt='opportunity' priority={true} className='w-full h-full object-cover'/>
                         </section>
                         <section className='w-full lg:w-auto flex flex-1 flex-col xl:w-[621px] space-y-[30px]'>

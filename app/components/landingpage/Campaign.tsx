@@ -17,7 +17,7 @@ const Campaign = () => {
                             Fowardin memungkinkan Anda untuk merencanakan pengiriman iklan yang tepat sasaran. Manfaatkan fitur Campaign kami untuk mengoptimalkan pesan iklan Anda sehingga hasilnya lebih akurat dan sukses. Dengan Fowardin, setiap pesan iklan memiliki dampak yang lebih besar.
                         </p>
                     </section>
-                    <div className='relative w-full h-[248.28px] md:w-[380px] md:h-[250px] lg:w-[461.9px] lg:h-[350.93px]'>
+                    <div className='block relative w-full h-[248.28px] md:w-[380px] md:h-[250px] lg:w-[461.9px] lg:h-[350.93px]'>
                         <Image src="/images/campaign-img.svg" alt="campaign-img" priority={true} fill className='w-full h-full object-cover'/>
                     </div>
                 </section>

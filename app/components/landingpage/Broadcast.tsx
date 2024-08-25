@@ -9,7 +9,7 @@ const Broadcast = () => {
             <section className='flexx bg-'>
                 <Sidenav currentSection='broadcast'/>
                 <section className='w-[313px] md:w-auto flexx flex-col lg:flex-row lg:space-x-[30px] xl:space-x-[105px] xl:ml-[120px]'>
-                    <section className='relative w-full h-[248.28px] md:w-[380px] md:h-[250px] lg:w-[470.02px] lg:h-[378.5px]'> 
+                    <section className='block relative w-full h-[248.28px] md:w-[380px] md:h-[250px] lg:w-[470.02px] lg:h-[378.5px]'> 
                         <Image src="/images/broadcast-img.svg" fill alt="broadcast-img" priority={true} className="w-full h-full object-cover"/>
                     </section>
                     <section className='w-full md:w-[370px] space-y-[30px]'>

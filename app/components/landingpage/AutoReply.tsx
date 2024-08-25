@@ -9,7 +9,7 @@ const AutoReply = () => {
             <section className='flexx'>
                 <Sidenav currentSection='autoreply'/>
                 <section className='w-[313px] md:w-auto flexx flex-col lg:flex-row lg:space-x-[30px] xl:space-x-[105px] xl:ml-[120px]'>
-                    <section className='relative w-full h-[147.4px] md:w-[380px] md:h-[250px] lg:w-[550px] lg:h-[310.76px]'> 
+                    <section className='block relative w-full h-[147.4px] md:w-[380px] md:h-[250px] lg:w-[550px] lg:h-[310.76px]'> 
                         <Image src="/images/autoreply-img.svg" fill priority={true} alt="autoreply-img" className="w-full h-full object-cover"/>
                     </section>
                     <section className='w-full md:w-[370px] space-y-[30px]'>
