@@ -18,7 +18,7 @@ const Register = async () => {
         <section className='flex-1 flex-center px-[20px] xl:px-0 xl:space-x-[120px] pb-[20px]'>
             <section className='hidden xl:flexx flex-col space-y-[25px]'>
                 <section className='relative w-[500px] h-[300.36px] -mt-[50px]'>
-                    <Image src="/images/hero-img.svg" fill priority alt="login-img" className='w-full h-full object-cover'/>
+                    <Image src="/images/hero-img.svg" fill alt="login-img" loading='lazy' className='w-full h-full object-cover'/>
                 </section>
                 <section className='flex flex-col space-y-[15px] w-[465px]'>
                     <h5 className='text-secondary text-[24px] leading-[30px] font-[700] font-lexend-deca'>

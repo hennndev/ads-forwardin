@@ -1,8 +1,10 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import Header from '@/app/components/dashboard/Header'
 import StarterInfo from '@/app/components/dashboard/StarterInfo'
 import LastMessage from '@/app/components/dashboard/LastMessage'
-import Analytic from '@/app/components/dashboard/analytic/Analytic'
+const Analytic = dynamic(() => import('@/app/components/dashboard/analytic/Analytic'))
+
 
 export const metadata = {
     title: 'FORWARDIN | Dashboard'

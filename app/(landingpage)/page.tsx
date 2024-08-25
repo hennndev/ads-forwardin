@@ -1,13 +1,14 @@
 import React, { Fragment} from 'react'
-import FAQ from '@/app/components/landingpage/FAQ'
-import Footer from '@/app/components/landingpage/Footer'
-import Pricing from '@/app/components/landingpage/Pricing'
-import Campaign from '@/app/components/landingpage/Campaign'
-import Broadcast from '@/app/components/landingpage/Broadcast'
-import AutoReply from '@/app/components/landingpage/AutoReply'
+import dynamic from 'next/dynamic'
 import GetStarted from '@/app/components/landingpage/GetStarted'
-import Opportunity from '@/app/components/landingpage/Opportunity'
-import ContactUs from '@/app/components/landingpage/ContactUs'
+const FAQ = dynamic(() => import('@/app/components/landingpage/FAQ'))
+const Footer = dynamic(() => import('@/app/components/landingpage/Footer'))
+const Pricing = dynamic(() => import('@/app/components/landingpage/Pricing'))
+const Campaign = dynamic(() => import('@/app/components/landingpage/Campaign'))
+const Broadcast = dynamic(() => import('@/app/components/landingpage/Broadcast'))
+const AutoReply = dynamic(() => import('@/app/components/landingpage/AutoReply'))
+const Opportunity = dynamic(() => import('@/app/components/landingpage/Opportunity'))
+const ContactUs = dynamic(() => import('@/app/components/landingpage/ContactUs'))
 
 export const metadata = {
     title: "FORWARDIN | Homepage"

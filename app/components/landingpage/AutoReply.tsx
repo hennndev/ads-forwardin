@@ -10,7 +10,7 @@ const AutoReply = () => {
                 <Sidenav currentSection='autoreply'/>
                 <section className='w-[313px] md:w-auto flexx flex-col lg:flex-row lg:space-x-[30px] xl:space-x-[105px] xl:ml-[120px]'>
                     <section className='relative w-full h-[147.4px] md:w-[380px] md:h-[250px] lg:w-[550px] lg:h-[310.76px]'> 
-                        <Image src="/images/autoreply-img.svg" fill priority alt="autoreply-img" className="w-full h-full object-cover"/>
+                        <Image src="/images/autoreply-img.svg" fill alt="autoreply-img" loading='lazy' className="w-full h-full object-cover"/>
                     </section>
                     <section className='w-full md:w-[370px] space-y-[30px]'>
                         <h4 className='section-title'>Respond Faster with the Convenience of Auto Reply</h4>

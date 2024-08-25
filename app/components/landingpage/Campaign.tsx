@@ -18,7 +18,7 @@ const Campaign = () => {
                         </p>
                     </section>
                     <div className='relative w-full h-[248.28px] md:w-[380px] md:h-[250px] lg:w-[461.9px] lg:h-[350.93px]'>
-                        <Image src="/images/campaign-img.svg" alt="campaign-img" fill priority className='w-full h-full object-cover'/>
+                        <Image src="/images/campaign-img.svg" alt="campaign-img" loading='lazy' fill className='w-full h-full object-cover'/>
                     </div>
                 </section>
             </section>

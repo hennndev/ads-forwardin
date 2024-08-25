@@ -1,13 +1,12 @@
 "use client"
 import { useState, useEffect, Fragment } from 'react'
 import clsx from 'clsx'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import Logo from '@/app/components/ui/logo/Logo'
 import { BsCaretDownFill } from "react-icons/bs"
 import MenuIcon from '@/app/components/ui/icons/MenuIcon'
 
 const Navbar = () => {
-    const router = useRouter()
     const [showNav, setShowNav] = useState<boolean>(false)
     const [lastScrollY, setLastScrollY] = useState(0)
     const [isScrolled, setIsScrolled] = useState<boolean>(false)
@@ -27,7 +26,7 @@ const Navbar = () => {
             window.removeEventListener('scroll', controlNavbar);
         }
     }, [lastScrollY]);
-
+    
     return (
         <Fragment>
             <header className={clsx('fixed z-50 md:flex-center w-full md:px-[10px] top-0 transition-none md:transition-all duration-300 ease-in-out md:mt-[20px]', !isScrolled ? 'translate-y-0' : 'md:-translate-y-[100px]')}>
@@ -42,9 +41,9 @@ const Navbar = () => {
                         <a href="" className='text-[14px] font-[500] leading-[16.94px] tracking-[0.0125em] hover:text-primary'>Demo</a>
                         <a href="" className='text-[14px] font-[500] leading-[16.94px] tracking-[0.0125em] hover:text-primary'>Blogs</a>
                     </nav>
-                    <button className='hidden md:flex-center bg-primary w-[115px] h-[41px] text-white rounded-[8px] text-base' onClick={() => router.push('/login')}>
+                    <Link href="/login" className='hidden md:flex-center bg-primary w-[115px] h-[41px] text-white rounded-[8px] text-base'>
                         Sign In
-                    </button>
+                    </Link>
                     <MenuIcon classes='inline-block md:hidden cursor-pointer' handleClick={() => setShowNav(!showNav)}/>
                 </section>
             </header>
@@ -65,15 +64,15 @@ const Navbar = () => {
                     <button className='bg-transparent w-[80%] py-[12px] px-[44px] rounded-[5px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500] text-secondary hover:text-primary'>
                         Blogs
                     </button>
-                    <button className='bg-primary w-[80%] py-[12px] px-[44px] text-white rounded-[10px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500]' onClick={() => router.push('/login')}>
+                    <Link href='/login' className='bg-primary w-[80%] py-[12px] px-[44px] text-white rounded-[10px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500]'>
                         Sign In
-                    </button>
-                    <button className='bg-[#F3F5F8] opacity-50 w-[80%] py-[12px] px-[44px] text-secondary rounded-[5px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500]' onClick={() => router.push('/login')}>
+                    </Link>
+                    <Link href='/login' className='bg-[#F3F5F8] opacity-50 w-[80%] py-[12px] px-[44px] text-secondary rounded-[5px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500]'>
                         Sign In as Admin
-                    </button>
-                    <button className='bg-transparent opacity-50 w-[80%] py-[12px] px-[44px] text-secondary rounded-[5px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500]' onClick={() => router.push('/login')}>
+                    </Link>
+                    <Link href='/login' className='bg-transparent opacity-50 w-[80%] py-[12px] px-[44px] text-secondary rounded-[5px] text-[14px] leading-[16.94px] tracking-[0.0125em] font-[500]'>
                         Sign In as Customer Service
-                    </button>
+                    </Link>
                </section>
             </section>
         </Fragment>
